@@ -1,0 +1,19 @@
+``` include __DIR__.'/vendor/autoload.php';
+
+use Discord\Discord;
+use Discord\WebSockets\Intents;
+use Discord\WebSockets\Event;
+
+$discord = new Discord([
+    'token' => 'ODYTMWU',
+    'loadAllMembers' => true,
+    'intents' => Intents::getDefaultIntents() | Intents::GUILD_MEMBERS // Enable the `GUILD_MEMBERS` intent
+]);
+
+$discord->on('ready', function ($discord)
+{
+    $guild = $discord->guilds->fetch('CHANNEL ID HERE);
+    var_dump($guild->members); //output NULL
+});
+
+$discord->run(); ````
